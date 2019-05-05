@@ -2,9 +2,9 @@ class Rental {
 	private Movie movie;
 	private int daysRented;
 
-	public Rental(Movie newmovie, int newdaysRented) {
-		movie = newmovie;
-		daysRented = newdaysRented;
+	public Rental(Movie movie, int daysRented) {
+		this.movie = movie;
+		this.daysRented = daysRented;
 	}
 
 	public int getDaysRented() {
@@ -14,7 +14,7 @@ class Rental {
 	public Movie getMovie() {
 		return movie;
 	}
-	
+
 	public double getCharge() {
 		double result = 0;
 		switch (getMovie().getPriceCode()) {
@@ -34,14 +34,12 @@ class Rental {
 		}
 		return result;
 	}
-	
-	 int getFrequentRenterPoints() {
-		 if ((getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
-		getDaysRented() > 1)
-		 return 2;
-		 else
-		 return 1;
-		 }
 
+	int getFrequentRenterPoints() {
+		if ((getMovie().getPriceCode() == Movie.NEW_RELEASE) && getDaysRented() > 1)
+			return 2;
+		else
+			return 1;
+	}
 
 }

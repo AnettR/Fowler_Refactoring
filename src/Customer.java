@@ -3,52 +3,51 @@ import java.lang.*;
 import java.util.*;
 
 class Customer {
-	private String _name;
-	private ArrayList<Rental> _rentals = new ArrayList<Rental>();
+	private String name;
+	private ArrayList<Rental> rentalList = new ArrayList<Rental>();
 	private int frequentRenterPoints;
 	private double totalAmount;
-	private String result;
+	private String rentalStatement;
 	private double totalCharge;
 	private int totalFrequentRenterPoints;
 
-	public Customer(String newname) {
-		_name = newname;
+	public Customer(String name) {
+		this.name = name;
 	};
 
-	public void addRental(Rental arg) {
-		_rentals.add(arg);
+	public void addRental(Rental rental) {
+		rentalList.add(rental);
 	};
 
 	public String getName() {
-		return _name;
+		return name;
 	};
 
 	public String statement() {
 		totalAmount = 0;
 		frequentRenterPoints = 0;
 
-		result = "Rental Record for " + this.getName() + "\n";
-		result += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
-		
+		rentalStatement = "Rental Record for " + this.getName() + "\n";
+		rentalStatement += "\t" + "Title" + "\t" + "\t" + "Days" + "\t" + "Amount" + "\n";
 
-_rentals.forEach(rental -> {
-	
+		rentalList.forEach(rental -> {
+
 			frequentRenterPoints += rental.getFrequentRenterPoints();
 
 			// show figures for this rental
-			result += "\t" + rental.getMovie().getTitle() + "\t" + "\t" + rental.getDaysRented() + "\t"
+			rentalStatement += "\t" + rental.getMovie().getTitle() + "\t" + "\t" + rental.getDaysRented() + "\t"
 					+ String.valueOf(rental.getCharge()) + "\n";
 			totalAmount += rental.getCharge();
 		});
 		// add footer lines
-		result += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
-		result += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) + " frequent renter points";
-		return result;
+		rentalStatement += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
+		rentalStatement += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) + " frequent renter points";
+		return rentalStatement;
 	}
 
 	private double getTotalCharge() {
 		totalCharge = 0;
-		_rentals.forEach(rental -> {
+		rentalList.forEach(rental -> {
 			totalCharge += rental.getCharge();
 		});
 		return totalCharge;
@@ -56,7 +55,7 @@ _rentals.forEach(rental -> {
 
 	private int getTotalFrequentRenterPoints() {
 		totalFrequentRenterPoints = 0;
-		_rentals.forEach(rental -> {
+		rentalList.forEach(rental -> {
 			totalFrequentRenterPoints += rental.getFrequentRenterPoints();
 		});
 		return totalFrequentRenterPoints;
