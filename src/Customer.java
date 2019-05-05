@@ -1,6 +1,5 @@
 
-import java.lang.*;
-import java.util.*;
+import java.util.ArrayList;
 
 class Customer {
 	private String name;
@@ -24,6 +23,7 @@ class Customer {
 	};
 
 	public String statement() {
+		
 		totalAmount = 0;
 		frequentRenterPoints = 0;
 
@@ -34,30 +34,41 @@ class Customer {
 
 			frequentRenterPoints += rental.getFrequentRenterPoints();
 
-			// show figures for this rental
 			rentalStatement += "\t" + rental.getMovie().getTitle() + "\t" + "\t" + rental.getDaysRented() + "\t"
 					+ String.valueOf(rental.getCharge()) + "\n";
+			
 			totalAmount += rental.getCharge();
 		});
-		// add footer lines
+		
 		rentalStatement += "Amount owed is " + String.valueOf(getTotalCharge()) + "\n";
 		rentalStatement += "You earned " + String.valueOf(getTotalFrequentRenterPoints()) + " frequent renter points";
+		
 		return rentalStatement;
 	}
 
 	private double getTotalCharge() {
+		
 		totalCharge = 0;
+		
 		rentalList.forEach(rental -> {
+			
 			totalCharge += rental.getCharge();
+			
 		});
+		
 		return totalCharge;
 	}
 
 	private int getTotalFrequentRenterPoints() {
+		
 		totalFrequentRenterPoints = 0;
+		
 		rentalList.forEach(rental -> {
+			
 			totalFrequentRenterPoints += rental.getFrequentRenterPoints();
+			
 		});
+		
 		return totalFrequentRenterPoints;
 	}
 
