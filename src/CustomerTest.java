@@ -5,7 +5,7 @@ import org.junit.Test;
 public class CustomerTest {
 	
 	Customer anne = new Customer("Anne");
-	Movie titanic = new Movie("Titanic", 1);
+	Movie titanic = new Movie("Titanic", PriceCodes.NEW_RELEASE);
 	Rental costs = new Rental(titanic, 5);
 	
 

@@ -1,20 +1,17 @@
 public class Movie {
-	public static final int CHILDRENS = 2;
-	public static final int REGULAR = 0;
-	public static final int NEW_RELEASE = 1;
 	private String title;
-	private int priceCode;
+	private PriceCodes priceCode;
 
-	public Movie(String title, int priceCode) {
+	public Movie(String title, PriceCodes priceCode) {
 		this.title = title;
 		this.priceCode = priceCode;
 	}
 
-	public int getPriceCode() {
+	public PriceCodes getPriceCode() {
 		return priceCode;
 	}
 
-	public void setPriceCode(int newPriceCode) {
+	public void setPriceCode(PriceCodes newPriceCode) {
 		priceCode = newPriceCode;
 	}
 
