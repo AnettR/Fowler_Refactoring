@@ -1,0 +1,9 @@
+---
+VM version: Aug  3 2016 18:20:31 - 81_REL - optU - windows amd64 - 6 - bas2:274212 (mixed mode)
+
+Time:2019-05-0709:05:42
+Pid: 9028
+Hostname: WDFN34222652A
+current dir: C:\Users\d070362\hdbstudio\Fowler_Refactoring
+---
+   :    [19096] 09:05:42 ***ERROR (:0): Java assert: "expected: null<null> but was: null<null>" in org.junit.Assert.assertEquals(Assert.java:115)
